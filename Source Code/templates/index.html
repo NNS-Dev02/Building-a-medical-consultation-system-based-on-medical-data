@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>TƯ VẤN Y TẾ</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <link rel="shortcut icon" href="{{url_for('static', filename='img/iconWebsite.jpg')}}" type="image/x-icon">
+    <link rel="stylesheet" href="{{url_for('static', filename='Css/Style.css')}}">
+</head>
+
+<body>
+
+    <header>
+        <div class='container'>
+          <h1>Hệ thống tư vấn Y tế Online</h1>
+        </div>
+    </header>
+
+    <div id="paramForm" class="overlay">
+      <form id="paramForm" class="form-container">
+        <h1>Nhập dữ liệu để chuẩn đoán bệnh!</h1>
+        <label for="param1">Chỉ số Ure máu:</label>
+        <input type="text" id="param1" name="param1" placeholder="Đơn vị mmol/l"><br>
+        <label for="param2">Nồng độ Creatinine:</label>
+        <input type="text" id="param2" name="param2" placeholder="Đơn vị mmol/l"><br>
+        <label for="param3">Chỉ số Glucose:</label>
+        <input type="text" id="param3" name="param3" placeholder="Đơn vị mg/dL"><br>
+        <label for="param4">Nồng độ Acid uric:</label>
+        <input type="text" id="param4" name="param4" placeholder="Đơn vị mmol/l"><br>
+        <label for="param5">Chỉ số HbA1c:</label>
+        <input type="text" id="param5" name="param5" placeholder="Đơn vị mg/dL"><br>
+        <label for="param6">Protein niệu 24 giờ:</label>
+        <input type="text" id="param6" name="param6" placeholder="Đơn vị mg/l/24h"><br>
+        <button class="inputDiv greetingDiv" type="button" onclick="sendParamsAndHideForm();">Gửi dữ liệu</button>
+        <button class="inputDiv greetingDiv" style="float: right;" type="button" onclick="hideForm()">Bỏ qua</button>
+      </form>
+    </div>
+
+    <div class='container'>
+
+      <ul id="Tab1" class="tabcontent">
+
+        <h2>Các triệu chứng dưới đây thể hiện lượng Ure trong máu đang thấp hay cao trong cơ thể chúng ta!</h2>
+        
+        <div onclick="openTabNumber(event, 'Tab2')">
+          <li onclick="getParams(0)">
+            <a class='normal' href='#'>
+                <img src="{{url_for('static', filename='img/tab1/MetMoi.png')}}" style ="width: 100%; height: 100%;">
+            </a>
+            <div class='info'>
+              <h3><span style="color: red;">Mệt mỏi:</span> Mức ure thấp có thể gây mất cân bằng hoá học trong cơ thể, gây ra cảm giác mệt mỏi.</h3>
+            </div>
+          </li>
+        </div>
+
+        <div onclick="openTabNumber(event, 'Tab2')">
+          <li onclick="getParams(0)">
+            <a class='normal' href='#'>
+                <img src="{{url_for('static', filename='img/tab1/ChongMat.png')}}" style ="width: 100%; height: 100%;">
+            </a>
+            <div class='info'>
+              <h3><span style="color: red;">Chóng mặt:</span> Mức ure thấp có thể làm giảm lượng chất dinh dưỡng đến não, gây chóng mặt.</h3>
+            </div>
+          </li>
+        </div>
+
+        <div onclick="openTabNumber(event, 'Tab2')">
+          <li onclick="getParams(0)"> 
+            <a class='normal' href='#'>
+                <img src="{{url_for('static', filename='img/tab1/GayKhoKhanTrongTapTrungVaTuDuy.png')}}" style ="width: 100%; height: 100%;">
+            </a>
+            <div class='info'>
+              <h3><span style="color: red;">Suy giảm chức năng nhận thức:</span> Mức ure thấp có thể gây ra suy giảm chức năng nhận thức, gây khó khăn trong tập trung và tư duy.</h3>
+            </div>
+          </li>
+        </div>
+
+        <div onclick="openTabNumber(event, 'Tab2')">
+          <li onclick="getParams(2)">
+            <a class='normal' href='#'>
+              <img src="{{url_for('static', filename='img/tab1/BuonNonVaNonMua.png')}}" style ="width: 100%; height: 100%;">
+            </a>
+            <div class='info'>
+              <h3><span style="color: red;">Buồn nôn và nôn mửa:</span> Mức ure cao có thể gây ra các vấn đề với hệ tiêu hóa, gây buồn nôn và nôn mửa.</h3>
+            </div>
+          </li>
+        </div>
+
+        <div onclick="openTabNumber(event, 'Tab2')">
+          <li onclick="getParams(2)"> 
+            <a class='normal' href='#'>
+                <img src="{{url_for('static', filename='img/tab1/CoGiat.png')}}" style ="width: 100%; height: 100%;">
+            </a>
+            <div class='info'>
+              <h3><span style="color: red;">Co giật:</span> Mức ure máu cực cao có thể gây ra các cơn co giật.</h3>
+            </div>
+          </li>
+        </div>
+
+        <div onclick="openTabNumber(event, 'Tab2')">
+          <li onclick="getParams(1)">
+            <a class='normal' href='#'>
+                <img src="{{url_for('static', filename='img/tab1/KhongTrieuChung.png')}}" style ="width: 100%; height: 100%;">
+            </a>
+            <div class='info'>
+            <h3>Không có dấu hiệu của các triệu chứng trên.</h3>
+            </div>
+          </li>
+        </div>
+        
+      </ul>
+
+      <!-- ------------------------------------------------------------------------------------------ -->
+
+      <ul id="Tab2" class="tabcontent" style="display: none;">
+
+        <h2>Các triệu chứng dưới đây thể hiện lượng Creatinin đang thấp hay cao trong cơ thể chúng ta!</h2>
+        
+        <div onclick="openTabNumber(event, 'Tab3')">
+          <li onclick="getParams(0)">
+            <a class='normal' href='#'>
+                <img src="{{url_for('static', filename='img/tab2/CoTheYeuDuoi.png')}}" style ="width: 100%; height: 100%;">
+            </a>
+            <div class='info'>
+              <h3><span style="color: red;">Cơ thể yếu đuối:</span> Mức creatinin thấp có thể xuất hiện khi cơ thể không tạo ra đủ năng lượng cần thiết cho hoạt động hàng ngày, dẫn đến cảm giác yếu đuối và mệt mỏi.</h3>
+            </div>
+          </li>
+        </div>
+
+        <div onclick="openTabNumber(event, 'Tab3')">
+          <li onclick="getParams(0)">
+            <a class='normal' href='#'>
+                <img src="{{url_for('static', filename='img/tab2/SuyGiamChucNangCoBap.png')}}" style ="width: 100%; height: 100%;">
+            </a>
+            <div class='info'>
+              <h3><span style="color: red;">Suy giảm chức năng cơ bắp:</span> Mức Creatinin thấp có thể liên quan đến suy giảm chức năng cơ bắp và khả năng hoạt động vận động.</h3>
+            </div>
+          </li>
+        </div>
+
+        <div onclick="openTabNumber(event, 'Tab3')">
+          <li onclick="getParams(0)"> 
+            <a class='normal' href='#'>
+                <img src="{{url_for('static', filename='img/tab2/GiamSucDeKhang.png')}}" style ="width: 100%; height: 100%;">
+            </a>
+            <div class='info'>
+              <h3><span style="color: red;">Giảm sức đề kháng:</span> Mức creatinin thấp cũng có thể ảnh hưởng đến hệ thống miễn dịch, làm giảm khả năng đề kháng của cơ thể trước vi khuẩn và bệnh tật.</h3>
+            </div>
+          </li>
+        </div>
+
+        <div onclick="openTabNumber(event, 'Tab3')">
+          <li onclick="getParams(2)">
+            <a class='normal' href='#'>
+              <img src="{{url_for('static', filename='img/tab2/KhoThoVaCangThangTimMach.png')}}" style ="width: 100%; height: 100%;">
+            </a>
+            <div class='info'>
+              <h3><span style="color: red;">Khó thở và căng thẳng tim mạch:</span> Mức creatinin cao có thể liên quan đến vấn đề về tim mạch và gây khó thở.</h3>
+            </div>
+          </li>
+        </div>
+
+        <div onclick="openTabNumber(event, 'Tab3')">
+          <li onclick="getParams(2)"> 
+            <a class='normal' href='#'>
+                <img src="{{url_for('static', filename='img/tab2/Sung.png')}}" style ="width: 100%; height: 100%;">
+            </a>
+            <div class='info'>
+              <h3><span style="color: red;">Sưng:</span> Sự tích tụ creatinin có thể dẫn đến sưng ở các vùng cơ thể, đặc biệt là ở chân, tay, hoặc khu vực mặt.</h3>
+            </div>
+          </li>
+        </div>
+
+        <div onclick="openTabNumber(event, 'Tab3')">
+          <li onclick="getParams(0)">
+            <a class='normal' href='#'>
+                <img src="{{url_for('static', filename='img/tab2/KhongTrieuChung.png')}}" style ="width: 100%; height: 100%;">
+            </a>
+            <div class='info'>
+            <h3>Không có dấu hiệu của các triệu chứng trên.</h3>
+            </div>
+          </li>
+        </div>
+
+      </ul>
+
+      <!-- ------------------------------------------------------------------------------------------ -->
+
+      <ul id="Tab3" class="tabcontent" style="display: none;">
+
+        <h2>Các triệu chứng dưới đây thể hiện nồng độ Glucose đang thấp hay cao trong cơ thể chúng ta!</h2>
+        
+        <div onclick="openTabNumber(event, 'Tab4')">
+          <li onclick="getParams(0)">
+            <a class='normal' href='#'>
+                <img src="{{url_for('static', filename='img/tab3/CamGiacHoaMatChongMat.png')}}" style ="width: 100%; height: 100%;">
+            </a>
+            <div class='info'>
+              <h3><span style="color: red;">Cảm giác hoa mắt, chóng mặt:</span> Khi glucose máu quá thấp, có thể gây ra cảm giác hoa mắt, chóng mặt và mất cân bằng.</h3>
+            </div>
+          </li>
+        </div>
+
+        <div onclick="openTabNumber(event, 'Tab4')">
+          <li onclick="getParams(0)">
+            <a class='normal' href='#'>
+                <img src="{{url_for('static', filename='img/tab3/DauDauVaMetMoi.png')}}" style ="width: 100%; height: 100%;">
+            </a>
+            <div class='info'>
+              <h3><span style="color: red;">Đau đầu và mệt mỏi:</span> Thiếu hụt glucose có thể gây ra đau đầu, mệt mỏi và cảm giác yếu đuối.</h3>
+            </div>
+          </li>
+        </div>
+
+        <div onclick="openTabNumber(event, 'Tab4')">
+          <li onclick="getParams(0)"> 
+            <a class='normal' href='#'>
+                <img src="{{url_for('static', filename='img/tab3/RoiLoanTamThan.png')}}" style ="width: 100%; height: 100%;">
+            </a>
+            <div class='info'>
+              <h3><span style="color: red;">Rối loạn tâm thần:</span> Mức glucose quá thấp có thể gây ra rối loạn tâm thần, như hỗn loạn tâm thần hoặc mất ý thức.</h3>
+            </div>
+          </li>
+        </div>
+
+        <div onclick="openTabNumber(event, 'Tab4')">
+          <li onclick="getParams(2)">
+            <a class='normal' href='#'>
+              <img src="{{url_for('static', filename='img/tab3/DoiLienTuc.png')}}" style ="width: 100%; height: 100%;">
+            </a>
+            <div class='info'>
+              <h3><span style="color: red;">Đói liên tục:</span> Cảm giác đói liên tục, thậm chí sau khi ăn, có thể là dấu hiệu của glucose cao vì cơ thể không thể sử dụng glucose hiệu quả.</h3>
+            </div>
+          </li>
+        </div>
+
+        <div onclick="openTabNumber(event, 'Tab4')">
+          <li onclick="getParams(2)"> 
+            <a class='normal' href='#'>
+                <img src="{{url_for('static', filename='img/tab3/DiTieuNhieuHon.png')}}" style ="width: 100%; height: 100%;">
+            </a>
+            <div class='info'>
+              <h3><span style="color: red;">Đi tiểu nhiều hơn:</span> Tăng sự thèm muốn đi tiểu, đặc biệt là vào ban đêm, có thể là dấu hiệu của đường huyết cao.</h3>
+            </div>
+          </li>
+        </div>
+
+        <div onclick="openTabNumber(event, 'Tab4')">
+          <li onclick="getParams(1)">
+            <a class='normal' href='#'>
+                <img src="{{url_for('static', filename='img/tab3/KhongTrieuChung.png')}}" style ="width: 100%; height: 100%;">
+            </a>
+            <div class='info'>
+            <h3>Không có dấu hiệu của các triệu chứng trên.</h3>
+            </div>
+          </li>
+        </div>
+
+      </ul>
+
+      <!-- ------------------------------------------------------------------------------------------ -->
+
+      <ul id="Tab4" class="tabcontent" style="display: none;">
+
+        <h2>Các triệu chứng dưới đây thể hiện nồng độ Acid uric đang thấp hay cao trong cơ thể chúng ta!</h2>
+        
+        <div onclick="openTabNumber(event, 'Tab5')">
+          <li onclick="getParams(2)">
+            <a class='normal' href='#'>
+                <img src="{{url_for('static', filename='img/tab4/ViemKhop.png')}}" style ="width: 100%; height: 100%;">
+            </a>
+            <div class='info'>
+              <h3><span style="color: red;">Viêm khớp:</span> Mức acid uric cao có thể gây ra các cơn viêm đau và sưng tại các khớp.</h3>
+            </div>
+          </li>
+        </div>
+
+        <div onclick="openTabNumber(event, 'Tab5')">
+          <li onclick="getParams(2)">
+            <a class='normal' href='#'>
+                <img src="{{url_for('static', filename='img/tab4/TaoHinhSoiThan.png')}}" style ="width: 100%; height: 100%;">
+            </a>
+            <div class='info'>
+              <h3><span style="color: red;">Tạo hình sỏi thận:</span> Mức acid uric cao có thể dẫn đến việc tạo hình sỏi thận, gây đau lưng và các vấn đề tiết niệu.</h3>
+            </div>
+          </li>
+        </div>
+
+        <div onclick="openTabNumber(event, 'Tab5')">
+          <li onclick="getParams(2)"> 
+            <a class='normal' href='#'>
+                <img src="{{url_for('static', filename='img/tab4/TeBiChanTay.png')}}" style ="width: 100%; height: 100%;">
+            </a>
+            <div class='info'>
+              <h3><span style="color: red;">Tê bì, ngứa ran ở bàn tay, bàn chân:</span> Cảm giác mất cảm nhận, ngứa ran là cảm giác ngứa nhức ở bàn tay và bàn chân.</h3>
+            </div>
+          </li>
+        </div>
+
+        <div onclick="openTabNumber(event, 'Tab5')">
+          <li onclick="getParams(2)">
+            <a class='normal' href='#'>
+              <img src="{{url_for('static', filename='img/tab4/TangCanDotNgot.png')}}" style ="width: 100%; height: 100%;">
+            </a>
+            <div class='info'>
+              <h3><span style="color: red;">Tăng cân đột ngột:</span> Một số người có nồng độ acid uric cao có thể trải qua tăng cân đột ngột mà không có thay đổi đáng kể về chế độ ăn uống hoặc lối sống.</h3>
+            </div>
+          </li>
+        </div>
+
+        <div onclick="openTabNumber(event, 'Tab5')">
+          <li onclick="getParams(2)"> 
+            <a class='normal' href='#'>
+                <img src="{{url_for('static', filename='img/tab4/TangCuongRaMoHoi.png')}}" style ="width: 100%; height: 100%;">
+            </a>
+            <div class='info'>
+              <h3><span style="color: red;">Tăng cường tạo ra mồ hôi:</span> Axit uric cao có thể ảnh hưởng đến quá trình tạo mồ hôi của cơ thể.</h3>
+            </div>
+          </li>
+        </div>
+
+        <div onclick="openTabNumber(event, 'Tab5')">
+          <li onclick="getParams(1)">
+            <a class='normal' href='#'>
+                <img src="{{url_for('static', filename='img/tab4/KhongTrieuChung.png')}}" style ="width: 100%; height: 100%;">
+            </a>
+            <div class='info'>
+            <h3>Không có dấu hiệu của các triệu chứng trên.</h3>
+            </div>
+          </li>
+        </div>
+
+      </ul>
+
+      <!-- ------------------------------------------------------------------------------------------ -->
+      
+      <ul id="Tab5" class="tabcontent" style="display: none;">
+
+        <h2>Các triệu chứng dưới đây thể hiện nồng độ Glucose huyết thanh trung bình hbA1c đang thấp hay cao trong cơ thể chúng ta!</h2>
+        
+        <div onclick="openTabNumber(event, 'Tab6')">
+          <li onclick="getParams(0)">
+            <a class='normal' href='#'>
+                <img src="{{url_for('static', filename='img/tab5/HoangLoanVaLoLang.png')}}" style ="width: 100%; height: 100%;">
+            </a>
+            <div class='info'>
+              <h3><span style="color: red;">Hoảng loạn và Lo lắng:</span> Khi glucose máu quá thấp, có thể gây ra hoảng loạn và lo lắng.</h3>
+            </div>
+          </li>
+        </div>
+
+        <div onclick="openTabNumber(event, 'Tab6')">
+          <li onclick="getParams(0)">
+            <a class='normal' href='#'>
+                <img src="{{url_for('static', filename='img/tab5/RungVaRunTay.png')}}" style ="width: 100%; height: 100%;">
+            </a>
+            <div class='info'>
+              <h3><span style="color: red;">Rung và run tay:</span> Cơ thể có thể bắt đầu run khi glucose huyết thanh giảm.</h3>
+            </div>
+          </li>
+        </div>
+
+        <div onclick="openTabNumber(event, 'Tab6')">
+          <li onclick="getParams(0)"> 
+            <a class='normal' href='#'>
+                <img src="{{url_for('static', filename='img/tab5/QuenVaMatTriNho.png')}}" style ="width: 100%; height: 100%;">
+            </a>
+            <div class='info'>
+              <h3><span style="color: red;">Quên và Mất trí nhớ:</span> Mức độ glucose máu thấp cũng có thể gây ra các vấn đề về trí nhớ và khả năng tập trung.</h3>
+            </div>
+          </li>
+        </div>
+
+        <div onclick="openTabNumber(event, 'Tab6')">
+          <li onclick="getParams(2)">
+            <a class='normal' href='#'>
+              <img src="{{url_for('static', filename='img/tab5/ThiLucMo.png')}}" style ="width: 100%; height: 100%;">
+            </a>
+            <div class='info'>
+              <h3><span style="color: red;">Thị lực mờ:</span> Thị lực có thể bị suy giảm, gây cảm giác mờ đục khi nhìn.</h3>
+            </div>
+          </li>
+        </div>
+
+        <div onclick="openTabNumber(event, 'Tab6')">
+          <li onclick="getParams(2)"> 
+            <a class='normal' href='#'>
+                <img src="{{url_for('static', filename='img/tab5/TutCan.png')}}" style ="width: 100%; height: 100%;">
+            </a>
+            <div class='info'>
+              <h3><span style="color: red;">Giảm cân không giải thích được:</span> Mất cân nhanh chóng mà không có lý do rõ ràng.</h3>
+            </div>
+          </li>
+        </div>
+
+        <div onclick="openTabNumber(event, 'Tab6')">
+          <li onclick="getParams(2)">
+            <a class='normal' href='#'>
+                <img src="{{url_for('static', filename='img/tab5/KhongTrieuChung.png')}}" style ="width: 100%; height: 100%;">
+            </a>
+            <div class='info'>
+            <h3>Không có dấu hiệu của các triệu chứng trên.</h3>
+            </div>
+          </li>
+        </div>
+
+      </ul>
+
+      <!-- ------------------------------------------------------------------------------------------ -->
+
+      <ul id="Tab6" class="tabcontent" style="display: none;">
+
+        <h2>Các triệu chứng dưới đây thể hiện Protein nước tiểu trong 24h đang thấp hay cao trong cơ thể chúng ta!</h2>
+        
+        <div>
+          <li onclick="getParams(2)">
+            <a class='normal' href="/show_results">
+                <img src="{{url_for('static', filename='img/tab6/NuocTieuBot.png')}}" style ="width: 100%; height: 100%;">
+            </a>
+            <div class='info'>
+              <h3><span style="color: red;">Nước tiểu bọt:</span> Một trong những dấu hiệu đáng chú ý của protein nước tiểu cao có thể là nước tiểu trở nên bọt, đặc biệt là sau khi tiểu.</h3>
+            </div>
+          </li>
+        </div>
+
+        <div>
+          <li onclick="getParams(2)">
+            <a class='normal' href="/show_results">
+                <img src="{{url_for('static', filename='img/tab6/Sung.png')}}" style ="width: 100%; height: 100%;">
+            </a>
+            <div class='info'>
+              <h3><span style="color: red;">Sưng:</span> Protein nước tiểu cao có thể gây ra sưng ở các vùng khác nhau của cơ thể, như chân, tay, khuôn mặt, hoặc bất kỳ vùng nào khác.</h3>
+            </div>
+          </li>
+        </div>
+
+        <div>
+          <li onclick="getParams(2)">
+            <a class='normal' href="/show_results">
+                <img src="{{url_for('static', filename='img/tab6/KhoChiuKhiDiTieu.png')}}" style ="width: 100%; height: 100%;">
+            </a>
+            <div class='info'>
+              <h3><span style="color: red;">Tiểu nhiều lần và cảm giác khó chịu khi đi tiểu:</span> Protein nước tiểu cao có thể gây kích thích hoặc kích ứng niệu đạo, khiến việc đi tiểu trở nên khó chịu hoặc đau rát.</h3>
+            </div>
+          </li>
+        </div>
+
+        <div>
+          <li onclick="getParams(2)">
+            <a class='normal' href="/show_results">
+              <img src="{{url_for('static', filename='img/tab6/DauThatLungVaVungBungDuoi.png')}}" style ="width: 100%; height: 100%;">
+            </a>
+            <div class='info'>
+              <h3><span style="color: red;">Đau thắt lưng hoặc vùng bụng dưới:</span> Protein nước tiểu cao có thể gây ra đau ở vùng thắt lưng hoặc vùng bụng dưới.</h3>
+            </div>
+          </li>
+        </div>
+
+        <div>
+          <li onclick="getParams(2)">
+            <a class='normal' href="/show_results">
+                <img src="{{url_for('static', filename='img/tab6/KhoTieuHoa.png')}}" style ="width: 100%; height: 100%;">
+            </a>
+            <div class='info'>
+              <h3><span style="color: red;">Khó tiêu hóa:</span> Một số người có lượng protein nước tiểu cao có thể gặp vấn đề về tiêu hóa, bao gồm buồn nôn hoặc khó chịu sau khi ăn.</h3>
+            </div>
+          </li>
+        </div>
+
+        <div>
+          <li onclick="getParams(0)">
+            <a class='normal' href="/show_results">
+                <img src="{{url_for('static', filename='img/tab6/KhongTrieuChung.png')}}" style ="width: 100%; height: 100%;">
+            </a>
+            <div class='info'>
+            <h3>Không có dấu hiệu của các triệu chứng trên.</h3>
+            </div>
+          </li>
+        </div>
+
+      </ul>
+
+    <!-- Switch Tabs -->
+    <script src="{{url_for('static', filename='js/SwitchTabs.js')}}"></script>
+    <!-- Animation Hover -->
+    <script src="{{url_for('static', filename='js/AnimationHover.js')}}"></script>
+    <!-- Get parameters from image -->
+    <script src="{{url_for('static', filename='js/GetParametersFromImage.js')}}"></script>
+    <!-- Get parameters from import -->
+    <script src="{{url_for('static', filename='js/GetParametersFromImport.js')}}"></script>
+
+</body>
+</html>

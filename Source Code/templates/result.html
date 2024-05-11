@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>TƯ VẤN Y TẾ</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <link rel="shortcut icon" href="{{url_for('static', filename='img/iconWebsite.jpg')}}" type="image/x-icon">
+    <link rel="stylesheet" href="{{url_for('static', filename='Css/Result.css')}}">
+</head>
+
+<body>
+
+  <!-- Bệnh Gút -->
+<div id="div1" class="container hidden">
+    <div class="container-inner">
+      <div class="main-content">
+        <div class="main-headings" id="main-headings-js">
+        <p id="by-line">Kết quả chuẩn đoán qua sàng lọc</p>
+  
+        <div class="heading">
+          <h3 id="heading1">Bạn có</h3>
+          <h3 id="heading2">nguy cơ mắc bệnh</h3>
+          <h1 id="heading3">Gút!</h1>
+        </div>
+  
+        <div class="short-bio">
+          <p style="margin-top: 25px;">Gút là bệnh xương khớp do axit uric tích tụ, tạo tinh thể gây đau và viêm ở các khớp. Chế độ ăn uống và thuốc giúp điều trị và kiểm soát bệnh.</p>
+          <p><u>Hiện tại bây giờ:</u> <span id="current-time"></span> bạn có thể đến phòng khám số: <b>{{ second_line }}</b> để bác sĩ tư vấn và chữa trị để kịp thời phòng chống bệnh.</p>
+        </div>
+  
+        <a href="#" class="link" onclick="readMore()">đọc thêm</a>
+        </div>
+        
+        <div class="more-info " id="more-info-js">
+          <h3>Các biện pháp phòng tránh:</h3>
+          <p><strong><u>Kiểm soát chế độ ăn uống:</u></strong> Tránh thức ăn giàu purine như thịt đỏ, hải sản, đồ ăn chiên và mỡ. Tăng cường uống nước, ăn trái cây, rau củ và các loại ngũ cốc nguyên cám có thể giúp giảm axit uric trong cơ thể.</p>
+          <p><strong><u>Giữ cân nặng ổn định:</u></strong> Việc duy trì cân nặng lành mạnh và tránh tăng cân quá nhanh có thể giúp giảm nguy cơ mắc bệnh gút. Điều này có thể đòi hỏi việc tập thể dục đều đặn và duy trì một lối sống lành mạnh.</p>
+          <p><strong><u>Hạn chế sử dụng rượu và đồ uống có ga:</u></strong> Rượu và đồ uống có ga như bia và nước ngọt có thể tăng nguy cơ gút. Hạn chế hoặc tránh uống những loại này có thể giúp giảm khả năng phát triển bệnh gút.</p>
+        </div>
+        
+      </div>
+  
+      <div class="image-wrapper">
+      <div class="image-container">
+        <img style="margin-left: -30px;" class="image" src="{{url_for('static', filename='img/result/BenhGut.webp')}}" alt="image of a young woman.">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bệnh Tiểu Đường -->
+<div id="div2" class="container hidden">
+  <div class="container-inner">
+    <div class="main-content">
+      <div class="main-headings" id="main-headings-js">
+      <p id="by-line">Kết quả chuẩn đoán qua sàng lọc</p>
+
+      <div class="heading">
+        <h3 id="heading1">Bạn có</h3>
+        <h3 id="heading2">nguy cơ mắc bệnh</h3>
+        <h1 id="heading3">Tiểu đường!</h1>
+      </div>
+
+      <div class="short-bio">
+        <p style="margin-top: 25px;">Tiểu đường là bệnh liên quan đến đường huyết không cân bằng do cơ thể không sản xuất hoặc sử dụng insulin đúng cách. Nó có hai loại chính: loại 1 (cần tiêm insulin) và loại 2 (thường liên quan đến lối sống không lành mạnh). Điều trị bao gồm chế độ ăn uống, vận động và có thể cần dùng thuốc hoặc insulin để kiểm soát đường huyết.</p>
+        <p><u>Hiện tại bây giờ:</u> <span id="current-time"></span> bạn có thể đến phòng khám số: <b>{{ second_line }}</b> để bác sĩ tư vấn và chữa trị để kịp thời phòng chống bệnh.</p>
+      </div>
+
+      <a href="#" class="link" onclick="readMore()">đọc thêm</a>
+      </div>
+      
+      <div class="more-info " id="more-info-js">
+        <h3>Các biện pháp phòng tránh:</h3>
+        <p><strong><u>Chế độ ăn uống lành mạnh:</u></strong> Hạn chế đường và carb, ăn nhiều rau, trái cây, ngũ cốc nguyên hạt, thực phẩm giàu protein.</p>
+        <p><strong><u>Vận động đều đặn:</u></strong> Tập thể dục hàng ngày giúp kiểm soát cân nặng, đường huyết và tăng cường sức khỏe tổng thể.</p>
+        <p><strong><u>Theo dõi sức khỏe định kỳ:</u></strong> Kiểm tra đường huyết định kỳ, theo dõi sức khỏe để phát hiện sớm các dấu hiệu tiểu đường có thể xuất hiện.</p>
+      </div>
+      
+    </div>
+
+    <div class="image-wrapper">
+    <div class="image-container">
+      <img style="margin-left: -30px;" class="image" src="{{url_for('static', filename='img/result/BenhTieuDuong.png')}}" alt="image of a young woman.">
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Bệnh Suy Thận -->
+<div id="div3" class="container hidden">
+  <div class="container-inner">
+    <div class="main-content">
+      <div class="main-headings" id="main-headings-js">
+      <p id="by-line">Kết quả chuẩn đoán qua sàng lọc</p>
+
+      <div class="heading">
+        <h3 id="heading1">Bạn có</h3>
+        <h3 id="heading2">nguy cơ mắc bệnh</h3>
+        <h1 id="heading3">Suy Thận!</h1>
+      </div>
+
+      <div class="short-bio">
+        <p style="margin-top: 25px;">Suy thận là tình trạng khi chức năng của thận giảm, dẫn đến tích tụ chất thải trong cơ thể. Có suy thận cấp (xảy ra đột ngột) và suy thận mãn tính (phát triển dần). Nguyên nhân có thể là do nhiều yếu tố như tiểu đường, huyết áp cao, viêm thận hoặc sử dụng thuốc không đúng cách. Chăm sóc sức khỏe và thăm bác sĩ định kỳ có thể giúp ngăn chặn và điều trị suy thận.</p>
+        <p><u>Hiện tại bây giờ:</u> <span id="current-time"></span> bạn có thể đến phòng khám số: <b>{{ second_line }}</b> để bác sĩ tư vấn và chữa trị để kịp thời phòng chống bệnh.</p>
+      </div>
+
+      <a href="#" class="link" onclick="readMore()">đọc thêm</a>
+      </div>
+      
+      <div class="more-info " id="more-info-js">
+        <h3>Các biện pháp phòng tránh:</h3>
+        <p><strong><u>Chế độ ăn uống lành mạnh:</u></strong> Hạn chế đồ ăn có nhiều đạm động vật, chất béo, và đường; thay vào đó, tăng cường thực phẩm giàu chất xơ, rau củ, trái cây và protein từ nguồn thực vật như đậu, hạt, đậu nành.</p>
+        <p><strong><u>Giữ cho cơ thể luôn được hydrat hóa:</u></strong> Uống đủ nước mỗi ngày để giúp thận loại bỏ chất thải hiệu quả.</p>
+        <p><strong><u>Kiểm soát các yếu tố nguy cơ:</u></strong> Điều chỉnh huyết áp, duy trì trọng lượng cơ thể ổn định, kiểm soát đường huyết nếu bạn có tiểu đường, và hạn chế sử dụng các loại thuốc gây hại cho thận.</p>
+      </div>
+      
+    </div>
+
+    <div class="image-wrapper">
+    <div class="image-container">
+      <img style="margin-left: -30px;" class="image" src="{{url_for('static', filename='img/result/BenhSuyThan.jpg')}}" alt="image of a young woman.">
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Không bệnh gì -->
+<div id="div4" class="container hidden">
+  <div class="container-inner">
+    <div class="main-content">
+      <div class="main-headings" id="main-headings-js">
+      <p id="by-line">Kết quả chuẩn đoán qua sàng lọc</p>
+
+      <div class="heading">
+        <h3 id="heading1">Bạn không có</h3>
+        <h3 id="heading2">nguy cơ mắc bệnh</h3>
+        <h1 id="heading3"></h1>
+      </div>
+
+      <div class="short-bio">
+        <p style="margin-top: 25px;"></p>
+      </div>
+
+      <a href="#" class="link" onclick="readMore()"></a>
+      </div>
+      
+      <div class="more-info " id="more-info-js">
+      </div>
+      
+    </div>
+
+    <div class="image-wrapper">
+    <div class="image-container">
+      <img style="margin-left: -30px;" class="image" src="{{url_for('static', filename='img/result/KhongCoNguyCoMacBenh.webp')}}" alt="image of a young woman.">
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Switch To The Corresponding Tab -->
+<script src="{{url_for('static', filename='js/ShowResult.js')}}"></script>
+
+<!-- Animation Result -->
+<script>
+  function readMore() {
+    var expandInfo = document.getElementById("more-info-js");
+    var mainHeadings = document.getElementById("main-headings-js");
+    
+    mainHeadings.style.transform = "scale(0.7)";
+    expandInfo.style.height = "350px";
+  } 
+</script>
+
+<script>
+  var curDate = new Date();
+      
+      // Ngày hiện tại
+      var curDay = curDate.getDate();
+   
+      // Tháng hiện tại
+      var curMonth = curDate.getMonth() + 1;
+        
+      // Năm hiện tại
+      var curYear = curDate.getFullYear();
+  
+      // Giờ hiện tại
+      var curHour = curDate.getHours();
+  
+      // Phút hiện tại
+      var curMinute = curDate.getMinutes();
+  
+      // Giây hiện tại
+      var curSecond = curDate.getSeconds();
+   
+      // Gán vào thẻ HTML
+      document.getElementById('current-time').innerHTML = curHour + ":" + curMinute + ":" + curSecond + " " + curDay + "/" + curMonth + "/" + curYear;
+</script>
+
+</body>
+</html>

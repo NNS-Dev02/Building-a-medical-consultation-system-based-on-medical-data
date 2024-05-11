@@ -1,0 +1,359 @@
+@import url(https://fonts.googleapis.com/css?family=Bree+Serif);
+li {
+perspective: 600px;
+}
+
+body {
+    background: linear-gradient(to bottom, #85C1E9, #D6EAF8);
+    color: #333;
+  }
+
+.info {
+transform: rotate3d(1, 0, 0, 90deg);
+width: 100%;
+height: 100%;
+padding: 20px;
+position: absolute;
+top: 0;
+left: 0;
+border-radius: 4px;
+pointer-events: none;
+background: linear-gradient(to bottom, #85C1E9, #ABEBC6, #D6EAF8);
+}
+
+.in-top .info {
+transform-origin: 50% 0%;
+-webkit-animation: in-top 300ms ease 0ms 1 forwards;
+        animation: in-top 300ms ease 0ms 1 forwards;
+}
+
+.in-right .info {
+transform-origin: 100% 0%;
+-webkit-animation: in-right 300ms ease 0ms 1 forwards;
+        animation: in-right 300ms ease 0ms 1 forwards;
+}
+
+.in-bottom .info {
+transform-origin: 50% 100%;
+-webkit-animation: in-bottom 300ms ease 0ms 1 forwards;
+        animation: in-bottom 300ms ease 0ms 1 forwards;
+}
+
+.in-left .info {
+transform-origin: 0% 0%;
+-webkit-animation: in-left 300ms ease 0ms 1 forwards;
+        animation: in-left 300ms ease 0ms 1 forwards;
+}
+
+.out-top .info {
+transform-origin: 50% 0%;
+-webkit-animation: out-top 300ms ease 0ms 1 forwards;
+        animation: out-top 300ms ease 0ms 1 forwards;
+}
+
+.out-right .info {
+transform-origin: 100% 50%;
+-webkit-animation: out-right 300ms ease 0ms 1 forwards;
+        animation: out-right 300ms ease 0ms 1 forwards;
+}
+
+.out-bottom .info {
+transform-origin: 50% 100%;
+-webkit-animation: out-bottom 300ms ease 0ms 1 forwards;
+        animation: out-bottom 300ms ease 0ms 1 forwards;
+}
+
+.out-left .info {
+transform-origin: 0% 0%;
+-webkit-animation: out-left 300ms ease 0ms 1 forwards;
+        animation: out-left 300ms ease 0ms 1 forwards;
+}
+
+@-webkit-keyframes in-top {
+from {
+    transform: rotate3d(-1, 0, 0, 90deg);
+}
+to {
+    transform: rotate3d(0, 0, 0, 0deg);
+}
+}
+
+@keyframes in-top {
+from {
+    transform: rotate3d(-1, 0, 0, 90deg);
+}
+to {
+    transform: rotate3d(0, 0, 0, 0deg);
+}
+}
+@-webkit-keyframes in-right {
+from {
+    transform: rotate3d(0, -1, 0, 90deg);
+}
+to {
+    transform: rotate3d(0, 0, 0, 0deg);
+}
+}
+@keyframes in-right {
+from {
+    transform: rotate3d(0, -1, 0, 90deg);
+}
+to {
+    transform: rotate3d(0, 0, 0, 0deg);
+}
+}
+@-webkit-keyframes in-bottom {
+from {
+    transform: rotate3d(1, 0, 0, 90deg);
+}
+to {
+    transform: rotate3d(0, 0, 0, 0deg);
+}
+}
+@keyframes in-bottom {
+from {
+    transform: rotate3d(1, 0, 0, 90deg);
+}
+to {
+    transform: rotate3d(0, 0, 0, 0deg);
+}
+}
+@-webkit-keyframes in-left {
+from {
+    transform: rotate3d(0, 1, 0, 90deg);
+}
+to {
+    transform: rotate3d(0, 0, 0, 0deg);
+}
+}
+@keyframes in-left {
+from {
+    transform: rotate3d(0, 1, 0, 90deg);
+}
+to {
+    transform: rotate3d(0, 0, 0, 0deg);
+}
+}
+@-webkit-keyframes out-top {
+from {
+    transform: rotate3d(0, 0, 0, 0deg);
+}
+to {
+    transform: rotate3d(-1, 0, 0, 104deg);
+}
+}
+@keyframes out-top {
+from {
+    transform: rotate3d(0, 0, 0, 0deg);
+}
+to {
+    transform: rotate3d(-1, 0, 0, 104deg);
+}
+}
+@-webkit-keyframes out-right {
+from {
+    transform: rotate3d(0, 0, 0, 0deg);
+}
+to {
+    transform: rotate3d(0, -1, 0, 104deg);
+}
+}
+@keyframes out-right {
+from {
+    transform: rotate3d(0, 0, 0, 0deg);
+}
+to {
+    transform: rotate3d(0, -1, 0, 104deg);
+}
+}
+@-webkit-keyframes out-bottom {
+from {
+    transform: rotate3d(0, 0, 0, 0deg);
+}
+to {
+    transform: rotate3d(1, 0, 0, 104deg);
+}
+}
+@keyframes out-bottom {
+from {
+    transform: rotate3d(0, 0, 0, 0deg);
+}
+to {
+    transform: rotate3d(1, 0, 0, 104deg);
+}
+}
+@-webkit-keyframes out-left {
+from {
+    transform: rotate3d(0, 0, 0, 0deg);
+}
+to {
+    transform: rotate3d(0, 1, 0, 104deg);
+}
+}
+@keyframes out-left {
+from {
+    transform: rotate3d(0, 0, 0, 0deg);
+}
+to {
+    transform: rotate3d(0, 1, 0, 104deg);
+}
+}
+
+ul {
+padding: 0;
+margin: 0px -135px 0px;
+}
+ul:after {
+content: "";
+display: table;
+clear: both;
+}
+
+li {
+position: relative;
+float: left;
+width: 300px;
+height: 300px;
+margin: 35px;
+padding: 0;
+list-style: none;
+}
+li a {
+display: inline-block;
+vertical-align: top;
+text-decoration: none;
+border-radius: 4px;
+}
+li h3 {
+margin: 0;
+font-size: 20px;
+color: #333;
+}
+li p {
+font-size: 15px;
+line-height: 1.5;
+color: #333;
+}
+li .normal {
+width: 100%;
+height: 100%;
+background-color: #ECF0F1;
+color: rgba(52, 73, 94, 0.6);
+box-shadow: inset 0 2px 20px #e6ebed;
+text-align: center;
+font-size: 50px;
+line-height: 200px;
+}
+li .normal svg {
+pointer-events: none;
+width: 50px;
+}
+li .normal svg path {
+fill: rgba(52, 73, 94, 0.2);
+}
+
+* {
+box-sizing: border-box;
+}
+
+body {
+background-color: #fff;
+}
+
+h1 {
+margin: 0 auto 5px;
+text-align: center;
+}
+
+h2{
+    margin: auto;
+    text-align: center;
+}
+
+h3 {
+font-family: "Bree Serif", serif;
+}
+
+.container {
+width: 840px;
+margin: 0 auto;
+}
+
+header {
+font-family: "Bree Serif", serif;
+text-align: center;
+color: #34495E;
+
+}
+header p {
+margin: 0;
+color: rgba(52, 73, 94, 0.4);
+}
+
+.tab {
+overflow: hidden;
+border: 1px solid #ccc;
+background-color: #f1f1f1;
+}
+
+.tab button {
+background-color: inherit;
+float: left;
+border: none;
+outline: none;
+cursor: pointer;
+padding: 14px 16px;
+transition: 0.3s;
+}
+
+.tab button:hover {
+background-color: #ddd;
+}
+
+.tab button.active {
+background-color: #ccc;
+}
+
+.form-container {
+max-width: 555px;
+margin: 150px auto;
+padding: 20px;
+border: 1px solid #ccc;
+border-radius: 5px;
+background-color: #f9f9f9;
+}
+
+.form-container input[type="text"] {
+width: calc(100% - 20px);
+margin-bottom: 10px;
+padding: 8px;
+border: 1px solid #ccc;
+border-radius: 3px;
+}
+
+.form-container button {
+padding: 10px 15px;
+margin-top: 10px;
+border: none;
+border-radius: 3px;
+background-color: #4caf50;
+color: white;
+cursor: pointer;
+}
+
+.form-container button:hover {
+background-color: #45a049;
+}
+
+.overlay {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.5);
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 10;
+}
